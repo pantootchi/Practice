@@ -1,4 +1,4 @@
 # Learning
 For learning purposes
 
-This is a private github repository that will store all the codes that were solely for testing my skills and for learning purposes.
+This is a private github repository that stores all the code I've written to test new skills I learn.
