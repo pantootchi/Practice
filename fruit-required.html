@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Favorite fruit with required attribute</title>
+    <style>
+      input:invalid {
+        border: 2px dashed red;
+      }
+
+      input:required:invalid {
+        background-image: linear-gradient(to right, pink, lightgreen);
+      }
+
+      input:valid {
+        border: 2px solid black;
+      }
+
+      input[type="text"]::placeholder {
+        color: blue;
+      }
+    </style>
+</head>
+
+<body>
+    <form>
+      <label for="choose">Would you prefer a banana or a cherry?</label>
+      <input type="text" id="choose" name="i_like" placeholder="Banana or Cherry" required>
+
+      <label for="num">Input number</label>
+      <input type="number" id ="num" name="num" required>
+
+      <label for="tel">Input tel</label>
+      <input type="tel" id ="tel" name="tel" required>
+
+      <label for="numeric">Input numeric</label>
+      <input type="text" id ="numeric" name="numeric" inputmode="numeric" autocomplete="cc-number" required>
+      <button>Submit</button>
+    </form>
+</body>
+
+</html>

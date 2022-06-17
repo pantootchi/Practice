@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body {
+        background-color: lightslategray;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        
+    }
+    .container {
+        width: 600px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 1em;
+        border-radius: 1em;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 600px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .textarea-hard {
+        resize:vertical;
+    }
+
+    .textarea-off {
+        resize: none;
+    }
+
+    .textarea-soft {
+        resize: horizontal;
+    }
+
+    fieldset {
+        position: relative;
+    }
+
+    legend {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    /* The <fieldset> needs to be positioned too, so that the <legend> is positioned relative to it (otherwise the <legend> would be positioned relative to the <body>). */
+</style>
+<body></body>
+
+    <div class="container">
+        <form action="#" method="post">
+            <section>
+                <h1>Common Attributes</h1>
+                <p>
+                    <label for="default">Default</label>
+                    <input type="text" name="default" id="default" value="I'm a text field">
+                </p>
+                <p>
+                    <label for="focus">Focus</label>
+                    <input type="text" name="focus" id="focus" value="I'm a text field" autofocus>
+                </p>
+                <p>
+                    <label for="disabled">Disabled</label>
+                    <input type="text" name="disabled" id="disabled" value="I'm a text field" disabled>
+                </p>
+            </section>
+        </form>
+        <fieldset>
+            <legend>Selec shoe type:</legend>
+            <ul>
+                <li>
+                    <input type="radio" name="shoe_type" id="sneakers" value="sneakers">
+                    <label for="sneakers">Sneakers</label>
+                </li>
+                <li>
+                    <input type="radio" name="shoe_type" id="heels" value="heels">
+                    <label for="heels">Heels</label>
+                </li>
+                <li>
+                    <input type="radio" name="shoe_type" id="boots" value="boots">
+                    <label for="boots">Boots</label>
+                </li>
+            </ul>
+        </fieldset>
+        <p>
+            <label for="file">Select image file:</label>
+            <input type="file" name="file" id="file" accept="image/*" multiple>
+        </p>
+        <p>
+            <label for="price">Choose a maximum house price:</label>
+            <input type="range" name="price" id="price" min="100" max="100000" step="100" value="100">
+            <output class="price-output" for="price"></output>
+        </p>
+        <p>
+            <label for="color">Color:</label>
+            <input type="color" name="color" id="color">
+        </p>
+        <section>
+            <h1>Date and Time Picker</h1>
+            <p>
+                <label for="datetime">Date & Time</label>
+                <input type="datetime-local" name="datetime" id="datetime">
+            </p>
+            <p>
+                <label for="month">Month & Year</label>
+                <input type="month" name="month" id="month">
+            </p>
+            <p>
+                <label for="time">Time</label>
+                <input type="time" name="time" id="time">
+            </p>
+            <p>
+                <label for="week">Week & Year</label>
+                <input type="week" name="week" id="week">
+            </p>
+            <p>
+                <label for="myDate">When are you available this summer?</label>
+                <input type="date" name="myDate" min="2013-06-01" max="2013-08-31" step="7" id="myDate">
+            </p>
+        </section>
+        <section>
+            <h1>Text Area</h1>
+            <p>
+                <textarea class="textarea-hard" wrap="hard">just checking tomakesure that thsis kfmskf dkfmkdfmsfsdsaddasdasdasasdasd</textarea>
+            </p>
+            <p>
+                <textarea class="textarea-off" wrap="off">just checking tomakesure that thsis kfmskf dkfmkdfmsfsdsaddasdasdasasdasd</textarea>
+            </p>
+            <p>
+                <textarea class="textarea-soft" wrap="soft">just checking tomakesure that thsis kfmskf dkfmkdfmsfsdsaddasdasdasasdasd</textarea>
+            </p>
+        </section>
+        <section>
+            <h1>Drop Downs</h1>
+        
+            <p>
+                <select id="groups" name="groups">
+                    <optgroup label="fruits">
+                        <option>Banana</option>
+                        <option>Cherry</option>
+                        <option>Lemon</option>
+                    </optgroup>
+                    <optgroup label="vegetables">
+                        <option>Carrot</option>
+                        <option>Eggplant</option>
+                        <option>Potato</option>
+                    </optgroup>
+                  </select>
+            </p>
+            <p>
+                <select id="multi" name="multi" multiple size="2">
+                    <optgroup label="fruits">
+                        <option>Banana</option>
+                        <option selected>Cherry</option>
+                        <option>Lemon</option>
+                    </optgroup>
+                    <optgroup label="vegetables">
+                        <option>Carrot</option>
+                        <option>Eggplant</option>
+                        <option>Potato</option>
+                    </optgroup>
+                </select>
+                    </section>
+            </p>
+            <p>
+                <label for="myFruit">What's your favorite fruit?</label>
+                <input type="text" name="myFruit" id="myFruit" list="mySuggestion">
+                <datalist id="mySuggestion">
+                    <option>Apple</option>
+                    <option>Banana</option>
+                    <option>Blackberry</option>
+                    <option>Blueberry</option>
+                    <option>Lemon</option>
+                    <option>Lychee</option>
+                    <option>Peach</option>
+                    <option>Pear</option>
+                </datalist>
+            </p>
+            <!-- Use fallback is browser doesn't support datalist -->
+            <p>
+                <label for="myFruit">What is your favorite fruit? (With fallback)</label>
+                <input type="text" id="myFruit" name="fruit" list="fruitList">
+                <datalist id="fruitList">
+                <!-- Browsers that support datalist will ignore all elements that are not <option> -->
+                    <label for="suggestion">or pick a fruit</label>
+                    <select id="suggestion" name="altFruit">
+                        <option>Apple</option>
+                        <option>Banana</option>
+                        <option>Blackberry</option>
+                        <option>Blueberry</option>
+                        <option>Lemon</option>
+                        <option>Lychee</option>
+                        <option>Peach</option>
+                        <option>Pear</option>
+                    </select>
+            </datalist>
+            </p>
+
+            <section>
+                <h1>Meters and Progress Bars</h1>
+                <p>
+                    <progress max="100" value="75">75/100</progress>
+                </p>
+
+                <p>
+                    <meter min="0" max="100" value="75" low="33" high="66" optimum="50">75</meter>
+                </p>
+            </section>
+    </div>
+
+    <script >
+        const price = document.querySelector('#price');
+        const output = document.querySelector('.price-output');
+
+        output.textContent = price.value;
+
+        price.addEventListener('input', function() {
+        output.textContent = price.value;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+        input {
+            border: 1px solid grey;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            height: 25px;
+        }
+        
+        label {
+            margin-bottom: 10px;
+        }
+
+        [for] {
+            position: relative;
+        }
+
+        .required::after {
+            content: "required";
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        form {
+            font-family: 'Josefin Sans', sans-serif;
+            width: 500px;
+            margin: 0 auto;
+        }
+        label,
+        input {
+            display: block;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: inherit;
+            font-size: 100%;
+        }
+
+        button {
+            margin: 0 auto;
+            width: 50%;
+            display: block;
+            font-family: inherit;
+            font-size: 100%;
+        }
+        
+        legend,
+        label::after {
+            background-color: black;
+            color: white;
+            padding: 5px 10px;
+        }
+        
+        fieldset {
+            padding: 15px;
+        }
+
+        input:invalid {
+            border: 2px solid red;
+        }
+
+        input:hover {
+            background: lightgray;
+        }
+
+        input + span {
+            position: relative;
+        }
+
+        input + span::before {
+            position: absolute;
+            right: -450px;
+            top: -50px;
+        }
+
+        input:invalid + span::before {
+            content: '✖';
+            color: red;
+        }
+
+        input + span::before {
+            content: '✓';
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+          <legend>Feedback form</legend>
+          <div>
+            <label for="fname" class="required">First name: 
+                <strong><abbr title="required" aria-label="required">*</abbr></strong>
+            </label>
+            <input id="fname" name="fname" type="text" required>
+            <span></span>
+          </div>
+          <div>
+            <label for="lname" class="required">Last name: 
+                <strong><abbr title="required" aria-label="required">*</abbr></strong>
+            </label>
+            <input id="lname" name="lname" type="text" required>
+            <span></span>
+          </div>
+          <div>
+            <label for="age" class="required">Age (must be 12+): 
+                <strong><abbr title="required" aria-label="required">*</abbr></strong>
+            </label>
+            <input type="number" name="age" id="age" min="12" max="120" required>
+            <span></span>
+          </div>
+          <div>
+            <label for="email">Email address (include if you want a response): </label>
+            <input id="email" name="email" type="email">
+            <span></span>
+          </div>
+          <div class="button"><button>Submit</button></div>
+        </fieldset>
+      </form>
+</body>
+</html>
