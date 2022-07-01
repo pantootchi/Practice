@@ -7,7 +7,6 @@
     <title>Grid Vs Flex</title>
 
     <style>
-
         .container {
             padding: 2rem;
         }
@@ -32,12 +31,33 @@
             gap: 1rem;
         }
 
-        .cell:nth-of-type(odd) {
+        .flex .cell:nth-of-type(odd) {
             flex: 1;
         }
 
-        .cell:nth-child(2) {
+        .flex .cell:nth-child(2) {
             flex: 2;
+        }
+
+        .layout {
+            padding: 2rem;
+        }
+
+        .cell2 {
+            background-color: lightblue;
+            padding: 3rem;
+        }
+
+        .gridv {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        }
+
+        .flexv {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
     </style>
 </head>
@@ -56,5 +76,23 @@
         <div class="cell">2</div>
         <div class="cell">3</div>
     </div>
+
+    <h1>Flex Layout</h1>
+    <div class="layout flexv">
+        <div class="cell2">This is some very long content which will most likely span on a few lines, depending on the size of the parent and the available space.</div>
+        <div class="cell2">2</div>
+        <div class="cell2">3</div>
+        <div class="cell2">4</div>
+        <div class="cell2">5</div>
+    </div>
+
+    <h1>Grid Layout</h1>
+        <div class="layout gridv">
+            <div class="cell2">This is some very long content which will most likely span on a few lines, depending on the size of the parent and the available space.</div>
+            <div class="cell2">2</div>
+            <div class="cell2">3</div>
+            <div class="cell2">4</div>
+            <div class="cell2">5</div>
+        </div>
 </body>
 </html>
