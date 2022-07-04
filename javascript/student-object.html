@@ -60,7 +60,28 @@
         console.log(randz);
         console.log(pat);
 
+        function TenthGrader(name) {
+            this.name = name
+            this.grade = 10
+        }
 
+        const nicole = new TenthGrader('Nicole');
+
+
+        // TenthGrader object with default prototype
+        console.log("nicole object's prototype")
+        console.log(nicole.__proto__)
+        console.log("nicole object's prototype's prototype")
+        console.log(nicole.__proto__.__proto__)
+
+
+        // NinthGrader object with assigned prototype of another constructor's
+        console.log("randz object's prototype")
+        console.log(randz.__proto__)
+        console.log("randz object's prototype's prototype")
+        console.log(randz.__proto__.__proto__)
+        console.log("randz object's prototype's prototype's prototype")
+        console.log(randz.__proto__.__proto__.__proto__)
     </script>
 </head>
 <body>
