@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // Define Student contructor
+        function Student() {
+        }
+
+        // Student constructor's object prototype will have the function sayName
+        Student.prototype.sayName = function() {
+            return this.name;
+        }
+
+        // Define EightGrader constructor
+        function EighthGrader(name) {
+        this.name = name
+        this.grade = 8
+        }
+
+        //Sets EightGrader constructors's prototype to a COPY of Student constructor
+        EighthGrader.prototype = Object.create(Student.prototype)
+
+        // Student constructor's object prototype will have the function sayGrade
+        Student.prototype.sayGrade = function() {
+            return this.grade;
+
+        }
+
+        // Define NinthGrader constructor
+        function NinthGrader(name) {
+            this.name = name
+            this.grade = 9
+        }
+
+        // Sets NinthGrader constructor's prototype to ANOTHER COPY of Student constructor
+        NinthGrader.prototype = Object.create(Student.prototype) 
+
+
+
+        // EightGrader constructor and NinthGrader constructor has its own COPY of the Student constructor and hence why they can use its (Student) prototype's properties
+
+
+
+        // Create new function for the EightGrader constructor's prototype (which is Student constructor)
+        // This does not add function to the actual Student constructor's prototype, it adds it to itself (which is a new copy).
+        // That is why NinthGrader constructor won't have this function.
+        EighthGrader.prototype.sayNameAndGrade = function() {
+            return (`${this.name} is a ${this.grade}th grader`)
+        }
+
+        const randz = new EighthGrader('Randz');
+        const pat = new NinthGrader('Patrisha');
+
+        console.log(randz.sayNameAndGrade());
+        console.log(randz);
+        console.log(pat);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
