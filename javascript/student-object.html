@@ -23,7 +23,8 @@
         }
 
         //Sets EightGrader constructors's prototype to a COPY of Student constructor
-        EighthGrader.prototype = Object.create(Student.prototype)
+        // EighthGrader.prototype = Object.create(Student.prototype)
+        EighthGrader.prototype = new Student();
 
         // Student constructor's object prototype will have the function sayGrade
         Student.prototype.sayGrade = function() {
@@ -38,7 +39,7 @@
         }
 
         // Sets NinthGrader constructor's prototype to ANOTHER COPY of Student constructor
-        NinthGrader.prototype = Object.create(Student.prototype) 
+        NinthGrader.prototype = Object.create(Student.prototype)
 
 
 
