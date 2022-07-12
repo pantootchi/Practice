@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">!
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const Person = (name) => {
+            const sayName = () => console.log(`my name is ${name}`);
+            return {sayName};
+        }
+
+        const Nerd = (name) => {
+            // simply create a person and pull out the sayName function with destructuring assignment syntax!
+            // therefore, sayName will be the actual function stripped from the object
+            const {sayName} = Person(name);
+            const doSomethingNerdy = () => console.log('nerd stuff');
+            return {sayName, doSomethingNerdy};
+        }
+
+        const jeff = Nerd('jeff');
+
+        jeff.sayName(); //my name is jeff
+        jeff.doSomethingNerdy(); // nerd stuff
+
+        const Person2 = (name) => {
+            const sayName = () => console.log(`my name is ${name}`);
+            return {sayName};
+        }
+
+        const Nerd2 = (name) => {
+            // Without deconstructing syntax, it'll assign the variable with an object containing the function
+            const sayName2 = Person2(name);
+            const doSomethingNerdy = () => console.log('nerd stuff');
+            return {sayName2, doSomethingNerdy};
+        }
+
+        const jeff2 = Nerd2('jeff');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
