@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Private and Public Scope</title>
+        <script>
+
+            // Private Scope
+
+            // Anonymous function already executed
+            (function () {
+                var myFunction = function () {
+                    // do some stuff here
+                };
+            })();
+
+            // Public Scope
+
+            // Module is a variable that stores the returned value from the executed function
+            var Module = (function () {
+                return {
+                    myMethod: function () {
+                    console.log('myMethod has been called.');
+                    }
+                };
+            })();
+
+            // call module + methods
+            Module.myMethod();
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
