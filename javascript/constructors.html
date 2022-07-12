@@ -33,6 +33,25 @@
         let p = new P();
         console.log(P.prototype);
         console.log(p);
+
+        // Factory Function
+        const personFactory = (name, age) => {
+            const sayHello = () => console.log('hello!');
+            return { name, age, sayHello };
+        };
+
+        const jeff = personFactory('jeff', 27);
+        console.log(jeff.name); // 'jeff'
+        jeff.sayHello();
+
+        // Constructor Version
+        const Person = function(name, age) {
+            this.sayHello = () => console.log('hello!');
+            this.name = name;
+            this.age = age;
+        };
+
+        const jeff2 = new Person('jeff', 27);
     </script>
 </head>
 <body>
