@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Factory Function Game</title>
+        <script>
+            const Player = (name, level) => {
+
+                // PRIVATE METHOD & VARIABLE
+                let health = level * 2;
+                const die = () => {
+                    console.log("You died.")
+                };
+
+                // PUBLIC METHODS
+                const getLevel = () => level;
+                const getName  = () => name;
+                const damage = x => {
+                    health -= x;
+                    if (health <= 0) {
+                    die();
+                    }
+                };
+                const attack = enemy => {
+                    if (level < enemy.getLevel()) {
+                    damage(1);
+                    console.log(`${enemy.getName()} has damaged ${name}`);
+                    }
+                    if (level >= enemy.getLevel()) {
+                    enemy.damage(1);
+                    console.log(`${name} has damaged ${enemy.getName()}`);
+                    }
+                };
+
+                return {attack, damage, getLevel, getName};
+            };
+
+            const jimmie = Player('jim', 10);
+            const badGuy = Player('jeff', 5);
+            jimmie.attack(badGuy);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
