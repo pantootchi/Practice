@@ -15,8 +15,8 @@
             })();
 
             // Public Scope
-
             // Module is a variable that stores the returned value from the executed function
+            // The function returns an object with a function
             var Module = (function () {
                 return {
                     myMethod: function () {
@@ -27,6 +27,48 @@
 
             // call module + methods
             Module.myMethod();
+
+            // EXAMPLE 2
+            // Variable that holds public and private functions
+            var Module2 = (function () {
+                var _privateMethod = function () {
+                };
+
+                return {
+                    publicMethod: function () {
+                        console.log("Module 2");
+                    }
+                };
+            })();
+
+            Module2.publicMethod();
+
+            // EXAMPLE 3
+            var Module3 = (function () {
+                var myModule = {};
+                var _privateMethod = function () {};
+
+                myModule.publicMethod = function () {console.log("Method 3")};
+                myModule.anotherPublicMethod = function () {console.log("Method 3.2")};
+
+                return myModule; // returns the Object with public methods
+            })();
+
+            // usage
+            Module3.publicMethod();
+            Module3.anotherPublicMethod();
+
+            // EXAMPLE 4
+            var Module4 = (function () {
+                var _privateMethod = function () {};
+                var publicMethod = function () {console.log("Method 4")};
+                return {
+                    publicMethod: publicMethod,
+                    anotherPublicMethod: function () {console.log("Method 4.2")}
+                }
+            })();
+            Module4.publicMethod();
+            Module4.anotherPublicMethod();
         </script>
     </head>
     <body>
