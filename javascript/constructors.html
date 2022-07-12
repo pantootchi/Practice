@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Object literal 
+        const proto = {protoprop: "protoprop"}; 
+
+        function C() {this.cprop ="cprop"};
+        C.prototype = proto;
+        let c = new C();
+        console.log(C.prototype);
+        console.log(c);
+
+        function F() {this.fprop = "fprop"};
+        F.prototype = proto;
+        let f = new F();
+        console.log(F.prototype);
+        console.log(f);
+
+        function D() {this.dprop = "dprop"};
+        let d = new D();
+        D.prototype = proto;
+        console.log(D.prototype);
+        console.log(d);
+        let d2 = new D();
+        console.log(d2);
+
+        function P() {this.pprop = "pprop"};
+        let p = new P();
+        console.log(P.prototype);
+        console.log(p);
+    </script>
+</head>
+<body>
+</body>
+</html>
