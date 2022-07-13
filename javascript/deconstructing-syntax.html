@@ -37,6 +37,16 @@
         }
 
         const jeff2 = Nerd2('jeff');
+
+        const Nerd3 = (name) => {
+
+            //assigns variable to an object with sayName function
+            const prototype = Person(name);
+            const doSomethingNerdy = () => console.log('nerd stuff');
+
+            // Puts properties inside source's objects into target object {}
+            return Object.assign({}, prototype, {doSomethingNerdy});
+        }
     </script>
 </head>
 <body>
