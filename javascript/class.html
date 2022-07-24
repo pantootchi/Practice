@@ -18,6 +18,11 @@
 
         let button = new Button("hello");
 
+        //value: "hello"
+        //PROTOTYPE
+        //click: f click()
+        //constructor: class Button
+    
         class Button2 {
             constructor(value) {
                 this.value = value;
@@ -28,7 +33,27 @@
             }
         }
 
+        //click: () => {alert(this.value);}
+        //value: "hi"
+        //PROTOTYPE
+        //constructor: class Button2
+
         let button2 = new Button2("hi");
+
+        class Button3 {
+            constructor(value) {
+                this.value = value;
+                this.click = function () {
+                    alert(this.value);
+                }
+            }
+        }
+        let button3 = new Button3("hey");
+
+        //click: f()
+        //value: "hey"
+        //PROTOTYPE
+        //constructor: class Button3
     </script>
 </head>
 <body>
