@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Animal {
+            speak() {
+                return this;
+            }
+
+            static eat() {
+                return this;
+            }
+        }
+
+        const obj = new Animal();
+        obj.speak(); 
+        const speak = obj.speak;
+        speak(); //undefined
+
+        Animal.eat();
+        const eat = Animal.eat;
+        eat(); //undefined
+
+        //Rewrite the above using traditional function-based syntax in non-strict mode, then this method calls are automatically bound to the initial this value, which by default is the global object.
+
+        function Animal2() { }
+
+        Animal2.prototype.speak = function () {
+            return this;
+        }
+
+        Animal2.eat = function () {
+            return this;
+        }
+        const obj2 = new Animal2();
+        const speak2 = obj2.speak;
+        speak(); //global object in non-strict mode
+
+        const eat2 = Animal2.eat;
+        eat(); //global object in non-strict mode
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
