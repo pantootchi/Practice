@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super class calls with super</title>
+    <script>
+        class Cat {
+            constructor(name) {
+                this.name = name;
+            }
+
+            speak() {
+                console.log(`${this.name} makes a noise.`);
+            }
+        }
+
+        class Lion extends Cat {
+            speak() {
+                super.speak();
+                console.log(`${this.name} roars.`);
+            }
+        }
+
+        const l = new Lion('Fuzzy');
+        //name
+        //PROTOTYPE: Cat
+        //constructor: class Lion
+        //speak: f speak()
+        //PROTOTYPE: Object
+        //constructor: class Cat
+        //speak: f speak()
+        //PROTOTYPE: Object
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
