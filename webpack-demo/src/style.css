@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'MaybeCoffee';
-    src: url('./Maybe\ Coffee.otf') format('otf'),
-    url('./Maybe\ Coffee.ttf') format('ttf');
+    src: url('./MaybeCoffee.otf') format('opentype'),
+    url('./MaybeCoffee.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
 }
