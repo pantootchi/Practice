@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "csv-loader": "^3.0.5",
+    "html-webpack-plugin": "^5.5.0",
     "json5": "^2.2.1",
     "toml": "^3.0.0",
     "webpack": "^5.74.0",
