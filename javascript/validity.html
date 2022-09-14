@@ -5,13 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+        font: 1em sans-serif;
+        width: 200px;
+        padding: 0;
+        margin: 0 auto;
+        }
+
+        p * {
+        display: block;
+        }
+
+        input[type="email"] {
+        appearance: none;
+
+        width: 100%;
+        border: 1px solid #333;
+        margin: 0;
+
+        font-family: inherit;
+        font-size: 90%;
+
+        box-sizing: border-box;
+        }
+
+        /* This is our style for the invalid fields */
+        input:invalid {
+        border-color: #900;
+        background-color: #fdd;
+        }
+
+        input:focus:invalid {
+        outline: none;
+        }
+
+        /* This is the style of our error messages */
+        .error {
+        width: 100%;
+        padding: 0;
+
+        font-size: 80%;
+        color: white;
+        background-color: #900;
+        border-radius: 0 0 5px 5px;
+
+        box-sizing: border-box;
+        }
+
+        .error.active {
+        padding: 0.3em;
+        }
+    </style>
 </head>
 <body>
-    <form action="">
-        <label for="mail">
-            I would like you to provide me with an e-mail address:
-        </label>
-        <input type="email" name="mail" id="mail">
+    <form novalidate>
+        <p>
+            <label for="mail">
+                <span>I would like you to provide me with an e-mail address:</span>
+            </label>
+            <input type="email" name="mail" id="mail" minlength="8" required>
+            <span class="error" aria-live="polite"></span>
+        </p>
         <button>Submit</button>
     </form>
 
