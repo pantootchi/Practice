@@ -71,16 +71,59 @@
     </form>
 
     <script>
+        // const email = document.getElementById("mail");
+
+        // email.addEventListener("input", (event) => {
+        // if (email.validity.typeMismatch) {
+        //     email.setCustomValidity("I am expecting an e-mail address!");
+        //     email.reportValidity();
+        // } else {
+        //     email.setCustomValidity("");
+        // }
+        // });
+
+        const form = document.querySelector("form");
         const email = document.getElementById("mail");
+        const emailError = document.querySelector("#mail + span.error")
 
         email.addEventListener("input", (event) => {
-        if (email.validity.typeMismatch) {
-            email.setCustomValidity("I am expecting an e-mail address!");
-            email.reportValidity();
-        } else {
-            email.setCustomValidity("");
+            // Each time the user types something, we check if the form fields are valid.
+            if (email.validity.valid) {
+                // If there is an error message visible and the field is valid, we remove the error message
+                emailError.textContent = "";
+                // This deactivates the "error active" class
+                emailError.className = "error";
+            } else {
+                // If there is still an error, then show the correct error message
+                showError();
+            }
+        })
+
+        form.addEventListener("submit", (event) => {
+            // If the email field is valid, the form will submit
+            if (!email.validity.valid) {
+                // If it isn't, display the appropriate error message
+                showError();
+                // Then we prevent the form from being sent by canceling the event
+                event.preventDefault();
+            }
+        })
+
+        function showError() {
+            if (email.validity.valueMissing) {
+                // If field is empty, display this message
+                emailError.textContent = "You need to enter an e-mail address.";
+            } else if (email.validity.typeMismatch) {
+                // If field doesn't contain an email address with an @, display this message
+                emailError.textContent = "Entered value needs to be an e-mail address.";
+            } else if (email.validity.tooShort) {
+                // If the input is too short, display this message
+                emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
+            }
+
+            // Activate error active class
+            emailError.className = "error active";
         }
-        });
     </script>
 </body>
 </html>
