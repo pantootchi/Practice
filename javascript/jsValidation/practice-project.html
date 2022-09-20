@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
         body {
             font: 1em sans-serif;
             width: 200px;
@@ -17,7 +16,7 @@
         p * {
             display: block;
         }
-
+        
         input:invalid {
             border-color: #900;
             background-color: #fdd;
@@ -51,6 +50,7 @@
                 <span>E-mail:</span>
                 <input type="email" id="email" name="email" required>
             </label>
+            <span class="error" aria-live="polite"></span>
         </p>
         <p>
             <label for="country">
@@ -63,18 +63,21 @@
                 <span>Zip Code:</span>
                 <input type="tel" id="zip" name="zip">
             </label>
+            <span class="error" aria-live="polite"></span>
         </p>
         <p>
             <label for="password">
                 <span>Password:</span>
                 <input type="password" id="password" name="password" required>
             </label>
+            <span class="error" aria-live="polite"></span>
         </p>
         <p>
             <label for="confirm-password">
                 <span>Confirm Password:</span>
                 <input type="password" name="confirm-password" id="confirm-password" required>
             </label>
+            <span class="error" aria-live="polite"></span>
         </p>
 
         <button>Submit</button>
@@ -83,9 +86,71 @@
     <script>
         const form = document.querySelector('form');
         const email = document.getElementById('email');
+        const emailError = document.querySelector("[for=email] + span.error")
         const country = document.getElementById('country');
         const zip = document.getElementById('zip');
-        const passwordNodes = document.querySelectorAll('[type="password"]');
+        const zipError = document.querySelector("[for=zip] + span.error")
+        const password = document.getElementById('password');
+        const passwordError = document.querySelector("[for=password] + span.error")
+        const confirmPW= document.getElementById('confirm-password');
+        const confirmPWError = document.querySelector("[for=confirm-password] + span.error")
+
+        const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+        const isValidPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{5,}$/;
+
+        email.addEventListener("input", (event) => {
+            if (email.validity.valid) {
+                emailError.textContent = '';
+                emailError.className = "error";
+            } else {
+                if (email.validity.valueMissing) {
+                    emailError.textContent = "You need to enter an email-address";
+                } else if (email.validity.typeMismatch) {
+                    emailError.textContent = "Entered value needs to be an e-mail address";
+                }
+                emailError.className = "error active";
+            }
+        })
+
+        zip.addEventListener("input", (event) => {
+            if (zip.value.length === 0 || isValidZip.test(zip.value)) {
+                zipError.textContent = '';
+                zipError.className = "error";
+            } else {
+                zipError.textContent = "Please use a valid zip code (Ex: 91030)";
+                zipError.className = "error active";
+            }
+        })
+
+        password.addEventListener("input", (event) => {
+            if (isValidPassword.test(password.value)) {
+                passwordError.textContent = '';
+                passwordError.className = "error";
+            } else {
+                passwordError.textContent = 'Password must at least have one uppercase letter, one lowercase letter, one digit, one special symbol, and more than 4 characters';
+                passwordError.className = "error active";
+            }
+        })
+
+        confirmPW.addEventListener("input", (event) => {
+            if (password.value === confirmPW.value) {
+                confirmPWError.textContent = '';
+                confirmPWError.className = "error";
+            } else {
+                confirmPWError.textContent = "Password does not match.";
+                confirmPWError.className = "error active";
+            }
+        })
+
+        // function showError() {
+        //     if (email.validity.valueMissing) {
+        //         emailError.textContent = "You need to enter an email-address";
+        //     } else if (email.validity.typeMismatch) {
+        //         emailError.textContent = "Entered value needs to be an e-mail address";
+        //     }
+
+        //     emailError.className = "error active";
+        // }
     </script>
 </body>
 </html>
