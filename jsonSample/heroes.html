@@ -32,6 +32,12 @@
           // We retrieve the response using a JSON using the json() function of the Response object
           const superHeroes = await response.json();
 
+          // OR
+          // We retreive the response as text rather than JSO, by calling the text() method of the response
+          // const superHeroesText = await response.text();
+          // We then use parse() to convert the text to a Javascript object
+          // const superHeroes = JSON.parse(superHeroesText);
+
           populateHeader(superHeroes);
           populateHeroes(superHeroes);
 
