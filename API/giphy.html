@@ -5,18 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+      input,
+      button {
+        display: block;
+      }
+    </style>
+
 </head>
 <body>
+
+    <input type="text" placeholder="Search GIF...">
     <img src="#">
+    <button>New GIF</button>
+
     <script>
+
         const img = document.querySelector('img');
-        fetch('https://api.giphy.com/v1/gifs/translate?api_key=51wX8I4V8wOLj8ojprq2OuC541qL8qbm&s=cats', {mode: 'cors'})
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(response) {
-            img.src = response.data.images.original.url;
-          });
+
+        const defaultImg = () => {
+          img.src = 'https://live.staticflickr.com/7240/7297872610_13d9fd3d69_b.jpg';
+          img.style = "width: 400px; height: auto";
+        }
+
+        defaultImg();
+        
+        // fetch('https://api.giphy.com/v1/gifs/translate?api_key=51wX8I4V8wOLj8ojprq2OuC541qL8qbm&s=cats', {mode: 'cors'})
+        //   .then(function(response) {
+        //     return response.json();
+        //   })
+        //   .then(function(response) {
+        //     img.src = response.data.images.original.url;
+        //   });
+
+        // async and await equivalent
+
+        async function getGIF(searchTerm) {
+          try {
+          const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=51wX8I4V8wOLj8ojprq2OuC541qL8qbm&s=${searchTerm}`, {mode: 'cors'});
+          const gifData = await response.json();
+          img.src = gifData.data.images.original.url;
+          } catch {
+            defaultImg();
+          }
+        }
+
+        const searchBar = document.querySelector("input");
+        searchBar.oninput = function() {getGIF(this.value)};
+        document.querySelector("button").onclick = function () {getGIF(searchBar.value)};
     </script>
+
 </body>
 </html>
