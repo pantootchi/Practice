@@ -18,7 +18,7 @@
         }
 
         .container2 {
-            display: grid;
+            display: inline-grid;
             grid-gap: 20px;
             grid-template-rows: 200px 400px;
         }
@@ -86,26 +86,26 @@
 
     <h1>Container 1 - Only defined columns</h1>
     <div class="container">
-        <div class="item">1r x 200c</div>
-        <div class="item">1r x 400c</div>
+        <div class="item">200c x 1r</div>
+        <div class="item">400c x 1r</div>
         <div class="item">3</div>
         <div class="item">4</div>
     </div>
 
     <h1>Container 2 - Only defined rows</h1>
     <div class="container2">
-        <div class="item">200r x c</div>
-        <div class="item">400r x c</div>
+        <div class="item">c x 200r</div>
+        <div class="item">c x 400r</div>
         <div class="item">3</div>
         <div class="item">4</div>
     </div>
 
     <h1>Container 3 - Defined rows and columns</h1>
     <div class="container3">
-        <div class="item">200r x 200c</div>
-        <div class="item">400r x 200c</div>
-        <div class="item">200r x 400c</div>
-        <div class="item">400r x 400c</div>
+        <div class="item">200c x 200r</div>
+        <div class="item">400c x 200r</div>
+        <div class="item">200c x 400r</div>
+        <div class="item">400c x 400r</div>
     </div>
 
     <h1>Container 4 - Extra content with implicit rows</h1>
