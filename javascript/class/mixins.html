@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixins</title>
+    <script>
+        // Class with a mixin
+        class Dog {
+            constructor(name) {
+                this.name = name;
+            }
+        }
+
+        // MIXIN
+        const dogFunctionality = {
+            bark: () => console.log("Woof!"),
+            wagTail: () => console.log("Wagging my tail!"),
+            play: () => console.log("Playing!")
+        };
+
+        // Assigns properties in the dogFunctionality object to the Dog class's prototype
+        Object.assign(Dog.prototype, dogFunctionality);
+
+        const rein = new Dog("Rein");
+        //name: "Rein"
+        //PROTOYPE
+        //bark: () => console.log();
+        //play: () => console.log();
+        //wagTail: () => console.log();
+        //constructor: class Dog;
+
+
+        // Class with inheritance?
+        class Dog2 {
+            constructor(name) {
+                this.name = name;
+            }
+
+            // Uses Method Definition syntax
+            bark() {console.log("Woof!")}
+            wagTail() {console.log("Wagging my tail!")}
+            play() {console.log("Playing!")}
+
+        }
+
+        const sheila = new Dog2("Sheila");
+        //name: Sheila"
+        //PROTOYPE
+        //bark: f bark();
+        //play: f play();
+        //wagTail: f wagTail();
+        //constructor: class Dog2;
+
+        // Class but uses arrow function to define class methods
+        class Dog3 {
+            constructor(name) {
+                this.name = name;
+            }
+
+            // Uses arrow function expression syntax
+            bark = () => console.log("Woof!")
+            wagTail = () => console.log("Wagging my tail!")
+            play = () => console.log("Playing!")
+        }
+
+        const max = new Dog3("Max");
+
+        //name: "Max"
+        //bark: () => console.log()
+        //play: () => console.log()
+        //wagTail: () => console.log()
+        //PROTOTYPE
+        //constructor: class Dog3
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
