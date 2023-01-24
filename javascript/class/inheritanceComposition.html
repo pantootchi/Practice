@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance vs Composition</title>
+    <script>
+        // Inheritance
+        // SUPERCLASS
+        class Person  {
+
+            // Puts these in the protoype
+            eat() {
+                console.log('I am eating');
+            }
+            breathe(){
+                console.log('I am breathing');
+            }    
+            swim(){
+                console.log('I am swimming');
+            } 
+        }
+
+        // SUBCLASS
+        //MAGICIAN INHERITS FROM PERSON
+        class Magician extends Person{
+
+            //puts this in the prototype
+            trick() {
+                console.log('I am doing a trick');
+            }
+        }
+
+        // CREATES NEW INSTANCES OF MAGICIAN CLASS
+        let liv1 = new Magician();
+        let harry1 = new Magician();
+
+        //Magician {}
+        //PROTOTYPE
+        //constructor: class Magician
+        //trick: f trick()
+        //PROTOTYPE
+        //breathe: f breathe()
+        //eat: f eat()
+        //swim: f swim()
+        //constructor: class Person
+
+
+        // Composition
+        // 4 variables that holds an object containing a method property
+        const eat = {
+            eat: () => console.log('I am eating')
+        }
+
+        const breathe = {
+            breathe: function() {
+                console.log('I am breathing')
+            }
+        }
+
+        // These ones uses the Method Definition syntax
+        const swim = {
+            swim() {
+                console.log('I am swimming')
+            }
+        }
+
+        const trick = {
+            trick() {
+                console.log('I am doing a trick')
+            }
+        }
+
+        //Factory Functions
+        const superMagician = () => {
+            return Object.assign({}, eat, breathe, trick)
+        }
+
+        const noviceMagician = () => {
+            return Object.assign({}, eat, breathe, swim)
+        }
+
+        // An object with following properties
+        let harry = superMagician();
+
+        // An object with following properties
+        let liv = noviceMagician();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

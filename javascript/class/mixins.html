@@ -31,6 +31,7 @@
         //wagTail: () => console.log();
         //constructor: class Dog;
 
+        // SEEMS SIMILAR TO THIS ONE
 
         // Class with inheritance?
         class Dog2 {
@@ -52,6 +53,20 @@
         //play: f play();
         //wagTail: f wagTail();
         //constructor: class Dog2;
+
+        // CAN WORK WITH CONSTRUCTOR FUNCTIONS
+        function DogConstructor(name) {
+            this.name = name;
+        }
+
+        Object.assign(DogConstructor.prototype, dogFunctionality);
+        const patty = new Dog("Patty");
+        //name: "Patty"
+        //PROTOTYPE
+        //bark: () => console.log()
+        //play: () => console.log()
+        //wagTail: () => console.log()
+        //constructor: f DogConstructor(name)
 
         // Class but uses arrow function to define class methods
         class Dog3 {
