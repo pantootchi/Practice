@@ -1,0 +1,9 @@
+header {
+  background: red;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+header button {
+  background: black;
+}/*# sourceMappingURL=style.css.map */
